@@ -20,7 +20,7 @@ class LignePanier extends Model
         'PrixUnitaire',
         'montant',
         'montantTVA',
-        'idPanier',
+        'panier_idPanier',
         'idproduit',
     ];
 

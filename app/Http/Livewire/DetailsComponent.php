@@ -45,7 +45,7 @@ public function decrementQuantity()
         $lignePanier->PrixUnitaire = $this->product->price ?: 0;
         $lignePanier->montant = $this->product->price ?: 0;
         $lignePanier->montantTVA = 0; // You can adjust this value based on your logic
-        $lignePanier->idPanier =$client->paniers->idPanier; // Replace with the appropriate Panier ID
+        $lignePanier->panier_idPanier =$client->paniers->idPanier; // Replace with the appropriate Panier ID
         $lignePanier->idproduit = $this->product->id;
         $lignePanier->save();
         session()->flash('success_message', 'Product added to cart successfully.');

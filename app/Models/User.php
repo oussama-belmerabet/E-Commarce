@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Panier;
 use App\Models\Client;
+use App\Models\Gerant;
 
 class User extends Authenticatable
 {
@@ -78,5 +79,9 @@ class User extends Authenticatable
 
     public function client(){
         return $this->hasOne(Client::class);
+    }
+
+    public function gerant(){
+        return $this->hasOne(Gerant::class);
     }
 }

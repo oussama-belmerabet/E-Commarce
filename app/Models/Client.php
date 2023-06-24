@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Command;
+
 
 class Client extends Model
 {
@@ -31,5 +33,8 @@ class Client extends Model
     public function paniers()
     {
         return $this->hasOne(Panier::class);
+    }
+    public function command(){
+        return $this->hasMany(Command::class);
     }
 }

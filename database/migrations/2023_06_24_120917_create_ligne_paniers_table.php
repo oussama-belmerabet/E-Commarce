@@ -16,12 +16,12 @@ return new class extends Migration
             $table->float('PrixUnitaire', 10, 2);
             $table->float('montant', 10, 2);
             $table->float('montantTVA', 10, 2);
-            $table->unsignedBigInteger('idPanier');
+            $table->unsignedBigInteger('panier_idPanier');
             $table->unsignedBigInteger('idproduit');
 
             $table->timestamps();
 
-            $table->foreign('idPanier')->references('idPanier')->on('paniers')->onDelete('cascade');
+            $table->foreign('panier_idPanier')->references('idPanier')->on('paniers')->onDelete('cascade');
             $table->foreign('idproduit')->references('id')->on('products')->onDelete('cascade');
         });
 
