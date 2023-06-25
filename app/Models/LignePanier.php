@@ -4,6 +4,7 @@ namespace App\Models;
 use App\Models\Compte;
 use App\Models\Panier;
 use App\Models\User;
+use App\Models\Product;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -30,8 +31,8 @@ class LignePanier extends Model
         return $this->belongsTo(Panier::class, 'idPanier');
     }
 
-    public function produit()
+    public function product()
     {
-        return $this->belongsTo(Produit::class, 'idproduit');
+        return $this->belongsTo(Product::class, 'idproduit');
     }
 }

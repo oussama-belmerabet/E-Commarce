@@ -9,6 +9,8 @@ use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\DetailsComponent;
+use App\Http\Livewire\CommandsComponent;
+use App\Http\Livewire\VentComponent;
 use App\Http\Livewire\Panier;
 use App\Http\Controllers\ProductController;
 /*
@@ -36,7 +38,8 @@ Route::get('/dashboard', function () {
    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 //});
 
-
+Route::get('/commands',CommandsComponent::class)->name('commands');
+Route::get('/vents',VentComponent::class)->name('vents');
 Route::get('/' ,HomeComponent::class )->name('home.index');
 Route::get('/shop' ,ShopComponent::class )->name('shop');
 Route::get('/product/{slug}',DetailsComponent::class)->name('product.details');

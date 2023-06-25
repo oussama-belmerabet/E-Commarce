@@ -54,8 +54,17 @@ class User extends Authenticatable
     parent::boot();
 
     static::created(function ($user) {
-        $client = new Client;
+        if ($user->name == 'admin' && $user->email == 'admin@gmail.com') {
+            $gerant = new Gerant;
+            $gerant->Adresse = 'Default Adresse';
+            $gerant->Tel = 'Default Tel';
+            $gerant->Age = 0;
+            $gerant->Prénom = 'Default Prénom';
+            $gerant->Nom = 'Default Nom';
 
+            $user->gerant()->save($gerant);
+        }
+        $client = new Client;
         $client->Commune = 'Default Commune';
         $client->Wilaya = 'Default Wilaya';
         $client->RC = 'Default RC';

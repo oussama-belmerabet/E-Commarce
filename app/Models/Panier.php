@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\LignePanier;
+use App\Models\Command;
 
 class Panier extends Model
 {
@@ -26,5 +27,8 @@ class Panier extends Model
     }
     public function LignePanier(){
         return $this->hasMany(LignePanier::class);
+    }
+    public function command(){
+        return $this->hasOne(Command::class);
     }
 }

@@ -19,10 +19,12 @@ return new class extends Migration
             $table->string('numéro_de_facture');
             $table->decimal('droit_de_timbre', 8, 2);
             $table->unsignedBigInteger('client_idClient');
-            $table->unsignedBigInteger('livraison_id');
-            $table->unsignedBigInteger('gerant_id');
+            $table->unsignedBigInteger('panier_idPanier')->nullable();
+            $table->unsignedBigInteger('livraison_id')->nullable();
+            $table->unsignedBigInteger('gerant_id')->nullable();
             $table->timestamps();
 
+            $table->foreign('panier_idPanier')->references('idPanier')->on('paniers');
             $table->foreign('client_idClient')->references('idClient')->on('clients');
             $table->foreign('livraison_id')->references('id')->on('livraisons');
             $table->foreign('gerant_id')->references('id')->on('gerants');

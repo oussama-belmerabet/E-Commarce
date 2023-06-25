@@ -36,19 +36,21 @@ public function decrementQuantity()
     public function addToCart()
     {
 
+
         $user = Auth::user();
         $client = $user->client;
         $lignePanier = new LignePanier();
         $lignePanier->Date = now();
         $lignePanier->produit = $this->product->name;
         $lignePanier->Quantité =$this->Quantité;
-        $lignePanier->PrixUnitaire = $this->product->price ?: 0;
-        $lignePanier->montant = $this->product->price ?: 0;
-        $lignePanier->montantTVA = 0; // You can adjust this value based on your logic
-        $lignePanier->panier_idPanier =$client->paniers->idPanier; // Replace with the appropriate Panier ID
+        $lignePanier->PrixUnitaire = $this->product->regular_price ?: 0;
+        $lignePanier->montant = $this->product->sale_price ?: 0;
+        $lignePanier->montantTVA =  0;
+        $lignePanier->panier_idPanier =$client->paniers->idPanier;
         $lignePanier->idproduit = $this->product->id;
         $lignePanier->save();
         session()->flash('success_message', 'Product added to cart successfully.');
+        $this->Quantité = 1;
         return back();
     }
     public function render()
